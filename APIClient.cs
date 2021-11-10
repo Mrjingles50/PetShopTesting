@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PetShopTesting
 {
-    class APIClient : IDisposable
+    public class APIClient 
     {
         public MonitoringAPIClient _api { get; private set; }
         private HttpClient client;
@@ -22,11 +22,6 @@ namespace PetShopTesting
             webBuilder.UseStartup<Startup>();
             client.BaseAddress = path;
             _api = new MonitoringAPIClient(client);
-        }
-
-        public void Dispose()
-        {
-            client?.Dispose();
         }
     }
 }
